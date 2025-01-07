@@ -8,31 +8,25 @@
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="{{ route('index') }}">Accueil</a></li>
                     <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Services</li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Nos Services</li>
                 </ol>
             </nav>
         </div>
     </div>
-    @include('menus.static')
-
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="nos-services">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="section-title bg-white text-center text-primary px-3">Témoignages</h6>
-                <h1 class="display-6 mb-4">Ce Que Disent Nos Clients</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Nos Services</h6>
+                <h1 class="display-6 mb-4">Des Solutions Juridiques Complètes et Personnalisées</h1>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                @foreach ($testimonials as $testimonial)
-                    <div class="testimonial-item bg-light rounded p-4">
-                        <div class="d-flex align-items-center mb-4">
-                            <img class="flex-shrink-0 rounded-circle border p-1"
-                                src="{{ asset('storage/' . $testimonial->image) }}" alt="{{ $testimonial->clientName }}">
-                            <div class="ms-4">
-                                <h5 class="mb-1">{{ $testimonial->clientName }}</h5>
-                                <span>{{ $testimonial->clientProfession }}</span>
-                            </div>
-                        </div>
-                        <p class="mb-0">"{{ $testimonial->testimonialText }}"</p>
+            <div class="row g-4">
+                @foreach ($services as $service)
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="service-item d-block rounded text-center h-100 p-4" href="">
+                            <img class="img-fluid rounded mb-4" src="{{ asset('storage/' . $service->image) }}"
+                                alt="{{ $service->libelle }}">
+                            <h4 class="mb-0">{{ $service->libelle }}</h4>
+                        </a>
                     </div>
                 @endforeach
             </div>
