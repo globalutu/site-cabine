@@ -1,108 +1,107 @@
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-2 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-    <a href="#" class="navbar-brand ms-3 d-lg-none" style="font-size: 14px;">MENU</a>
-    <button type="button" class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top py-2 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+    <!-- Logo -->
+    <a href="" class="navbar-brand m-auto d-lg-flex d-block">
+        <h1 class="fw-bold text-primary m-0 img-sm text-center">
+            <img src="img/logo.png" alt="Logo" style="max-width: 90px; height: 60px;">
+        </h1>
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button type="button" class="navbar-toggler me-3 custom-toggler" data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav me-auto p-2 p-lg-0">
+        <div class="navbar-nav ms-auto p-2 p-lg-0">
             <a href="{{ route('index') }}" class="nav-item nav-link text-light" style="font-size: 14px;">Accueil</a>
             <a href="{{ route('about') }}" class="nav-item nav-link text-light" style="font-size: 14px;">À Propos</a>
             <a href="{{ route('Services') }}" class="nav-item nav-link text-light" style="font-size: 14px;">Services</a>
             <a href="{{ route('Contact') }}" class="nav-item nav-link text-light" style="font-size: 14px;">Contact</a>
         </div>
-        <button class="btn btn-sm btn-light rounded-pill py-1 px-3 d-none d-lg-block" data-bs-toggle="modal"
-            data-bs-target="#serviceModal" style="font-size: 12px;">
-            Demander un Service
-        </button>
     </div>
 </nav>
 
+<style>
+    /* Animation de fond douce */
+    .navbar {
+        background: linear-gradient(90deg, #2c3e50, #066cd1, #c51322, #56637a);
+        background-size: 200% 200%;
+        animation: softBackground 8s infinite;
+    }
 
-<!-- Modal -->
-<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <!-- En-tête du modal -->
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="serviceModalLabel">Demander un Service Juridique</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
+    /* Animation subtile du gradient */
+    @keyframes softBackground {
+        0% {
+            background-position: 0% 50%;
+        }
 
-            <!-- Corps du modal -->
-            <div class="modal-body">
-                <form id="serviceForm" action="submit_service_request.php" method="POST">
-                    <div class="row g-3">
-                        <!-- Choix du service -->
-                        <div class="col-12">
-                            <label for="serviceType" class="form-label">Type de Service</label>
-                            <select class="form-select" id="serviceType" name="serviceType" required>
-                                <option value="" disabled selected>Choisissez un service</option>
-                                @foreach ($services as $service)
-                                    <option value="{{ $service->id }}">{{ $service->libelle }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+        50% {
+            background-position: 100% 50%;
+        }
 
-                        <!-- Nom complet -->
-                        <div class="col-md-6">
-                            <label for="fullName" class="form-label">Nom complet</label>
-                            <input type="text" class="form-control" id="fullName" name="fullName"
-                                placeholder="Votre nom complet" required>
-                        </div>
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
-                        <!-- Adresse email -->
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">Adresse email</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Votre email" required>
-                        </div>
+    /* Couleurs du texte et des liens */
+    .navbar-nav .nav-link {
+        color: #ecf0f1 !important;
+        transition: color 0.3s ease;
+    }
 
-                        <!-- Téléphone -->
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label">Téléphone</label>
-                            <input type="text" class="form-control" id="phone" name="phone"
-                                placeholder="Votre téléphone" required>
-                        </div>
+    .navbar-nav .nav-link:hover {
+        color: #1abc9c !important;
+    }
 
-                        <!-- Message optionnel -->
-                        <div class="col-12">
-                            <label for="message" class="form-label">Message (facultatif)</label>
-                            <textarea class="form-control" id="message" name="message" rows="4"
-                                placeholder="Expliquez brièvement votre besoin..."></textarea>
-                        </div>
+    /* Bouton mobile personnalisé */
+    .navbar-toggler {
+        border: none;
+        outline: none;
+    }
 
-                        <!-- Bouton d'envoi -->
-                        <div class="col-12 text-center mt-3">
-                            <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">Envoyer la
-                                demande</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+    .navbar-toggler .navbar-toggler-icon {
+        width: 24px;
+        height: 3px;
+        background: #ecf0f1;
+        position: relative;
+        display: block;
+        transition: all 0.3s ease-in-out;
+    }
 
-<script>
-    // Script pour activer le menu en fonction de la page actuelle
-    document.addEventListener('DOMContentLoaded', function() {
-        // Obtenir tous les liens du menu
-        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    .navbar-toggler .navbar-toggler-icon::before,
+    .navbar-toggler .navbar-toggler-icon::after {
+        content: '';
+        width: 24px;
+        height: 3px;
+        background: #ecf0f1;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+    }
 
-        // Récupérer l'URL actuelle
-        const currentUrl = window.location.href;
+    .navbar-toggler .navbar-toggler-icon::before {
+        top: -8px;
+    }
 
-        // Boucler sur chaque lien du menu
-        navLinks.forEach(link => {
-            // Si l'URL du lien correspond à l'URL actuelle
-            if (link.href === currentUrl) {
-                // Ajouter la classe 'active' au lien correspondant
-                link.classList.add('active');
-            } else {
-                // Supprimer la classe 'active' des autres liens (au cas où)
-                link.classList.remove('active');
-            }
-        });
-    });
-</script>
+    .navbar-toggler .navbar-toggler-icon::after {
+        top: 8px;
+    }
+
+    /* Effet de clic sur le bouton */
+    .navbar-toggler.collapsed .navbar-toggler-icon {
+        background: transparent;
+    }
+
+    .navbar-toggler.collapsed .navbar-toggler-icon::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .navbar-toggler.collapsed .navbar-toggler-icon::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+</style>

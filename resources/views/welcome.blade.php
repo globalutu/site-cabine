@@ -94,66 +94,61 @@
     <!-- Topbar Start -->
     <div class="container-fluid bg-light px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="row gx-0 align-items-center d-none d-lg-flex">
+            <!-- Suivez-nous Section -->
             <div class="col-lg-6 px-5 text-start">
-
-            </div>
-            <div class="col-lg-6 px-5 text-end">
-                <small>Suivez-nous :
-                </small>
+                <small class="text-muted" style="font-size: 14px;">Suivez-nous :</small>
                 <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn-square text-primary border-end rounded-0" title="{{ old('email', $contact->email) }}"
-                        href="{{ old('email', $contact->email) }}">
-                        <i class="far fa-envelope"></i></a>
-                    <a class="btn-square text-primary border-end rounded-0"
-                        href="{{ old('twitter_url', $contact->twitter_url) }}"><i class="fab fa-twitter"></i></a>
-                    <a class="btn-square text-primary border-end rounded-0"
-                        href="{{ old('linkedin_url', $contact->linkedin_url) }}"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn-square text-primary pe-0" href="{{ old('email', $contact->email) }}"><i
-                            class="fab fa-instagram"></i></a>
+                    <!-- Boutons réseaux sociaux -->
+                    <a class="btn-square text-primary border-end rounded-circle p-2 m-1"
+                        title="{{ old('email', $contact->email) }}" href="{{ old('email', $contact->email) }}"
+                        style="transition: all 0.3s;">
+                        <i class="far fa-envelope" style="font-size: 20px;"></i>
+                    </a>
+                    <a class="btn-square text-primary border-end rounded-circle p-2 m-1"
+                        href="{{ old('twitter_url', $contact->twitter_url) }}" style="transition: all 0.3s;">
+                        <i class="fab fa-twitter" style="font-size: 20px;"></i>
+                    </a>
+                    <a class="btn-square text-primary border-end rounded-circle p-2 m-1"
+                        href="{{ old('linkedin_url', $contact->linkedin_url) }}" style="transition: all 0.3s;">
+                        <i class="fab fa-linkedin-in" style="font-size: 20px;"></i>
+                    </a>
+                    <a class="btn-square text-primary pe-0 p-2 m-1" href="{{ old('email', $contact->email) }}"
+                        style="transition: all 0.3s;">
+                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
 
-
-    <!-- Brand & Contact Start -->
-    <div class="container-fluid wow fadeIn" data-wow-delay="0.1s">
-        <div class="row align-items-center top-bar">
-            <div class="col-lg-4 col-md-12 text-center text-lg-start">
-                <a href="" class="navbar-brand m-0 p-0">
-                    <h1 class="fw-bold text-primary m-0 img-sm">
-                        <img src="img/logo.png" alt="Logo" style="max-width: 60px; height: 25px;">
-                    </h1>
-                </a>
-            </div>
-            <div class="col-lg-8 col-md-7 d-none d-lg-block">
+            <!-- Informations de contact Section -->
+            <div class="col-lg-6 d-none d-lg-block">
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4">
+                    <!-- Heure d'ouverture -->
+                    <div class="col-6">
                         <div class="d-flex align-items-center justify-content-end">
-                            <div class="flex-shrink-0 btn-sm-square border rounded-circle"
+                            <div class="flex-shrink-0 btn-sm-square border rounded-circle p-1"
                                 style="width: 30px; height: 30px;">
-                                <i class="far fa-clock text-primary" style="font-size: 14px;"></i>
+                                <i class="far fa-clock text-primary" style="font-size: 16px;"></i>
                             </div>
                             <div class="ps-2">
-                                <h6 class="mb-0" style="font-size: 12px;">
-                                    {{ old('heures_ouverture_1', $contact->heures_ouverture_1) }}</h6>
+                                <h6 class="mb-0" style="font-size: 14px;">
+                                    {{ old('heures_ouverture_1', $contact->heures_ouverture_1) }}
+                                </h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+
+                    <!-- Téléphone -->
+                    <div class="col-6">
                         <div class="d-flex align-items-center justify-content-end">
-                            <div class="flex-shrink-0 btn-sm-square border rounded-circle"
+                            <div class="flex-shrink-0 btn-sm-square border rounded-circle p-1"
                                 style="width: 30px; height: 30px;">
-                                <i class="fa fa-phone text-primary" style="font-size: 14px;"></i>
+                                <i class="fa fa-phone text-primary" style="font-size: 16px;"></i>
                             </div>
                             <div class="ps-2">
-                                <h6 class="mb-0" style="font-size: 12px;">
+                                <h6 class="mb-0" style="font-size: 14px;">
                                     <a href="tel:{{ $contact->telephone_1 }}" class="text-decoration-none text-dark">
                                         {{ old('telephone_1', $contact->telephone_1) }}
-                                    </a>
-                                    /
+                                    </a> /
                                     <a href="tel:{{ $contact->telephone_2 }}" class="text-decoration-none text-dark">
                                         {{ old('telephone_2', $contact->telephone_2) }}
                                     </a>
@@ -165,6 +160,14 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Topbar End -->
+
+    <!-- Brand & Contact Start -->
+
+    <!-- Brand & Contact End -->
+
 
 
     <!-- Brand & Contact End -->
