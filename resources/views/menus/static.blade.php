@@ -6,7 +6,8 @@
         <div class="row g-5">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="img-border">
-                    <img class="img-fluid" src="img/about.jpg" alt="Cabinet ONONTIO Services Juridiques">
+                    <img class="img-fluid" src="img/5a0ae435-2d19-4b9a-b3e9-3759e1c43a37.jpg"
+                        alt="Cabinet ONONTIO Services Juridiques">
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -94,9 +95,9 @@
             <!-- Image -->
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="img-border">
-                    <img class="img-fluid" src="{{ url('dossiers/storage/app/public/contents/' . $Content->image) }}"
-                        alt="Services juridiques ONONTIO">
+                    <img class="img-fluid" src="{{ $Content->image }}" alt="Services juridiques ONONTIO">
                 </div>
+
             </div>
         </div>
     </div>
