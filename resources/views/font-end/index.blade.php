@@ -1,5 +1,5 @@
 @extends('welcome')
-@section('title', 'Accueil')
+@section('title', 'ONONTIO - Accueil')
 @section('content')
 
 
@@ -68,7 +68,7 @@
 
     @include('menus.static')
 
-    <div class="container-xxl py-5">
+    <!--div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="section-title bg-white text-center text-primary px-3">Témoignages</h6>
@@ -90,7 +90,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div-->
 
 
 @endsection

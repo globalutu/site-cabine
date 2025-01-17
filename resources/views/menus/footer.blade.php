@@ -10,7 +10,7 @@
                         class="fa fa-phone-alt me-3"></i>{{ old('telephone_1', $contact->telephone_1) }}/{{ old('telephone_2', $contact->telephone_2) }}
                 </p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ old('email', $contact->email) }}</p>
-                <div class="d-flex pt-2">
+                <!--div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="#"><i
                             class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="#"><i
@@ -19,7 +19,7 @@
                             class="fab fa-youtube"></i></a>
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href="#"><i
                             class="fab fa-linkedin-in"></i></a>
-                </div>
+                </div-->
             </div>
 
             <!-- Quick Links -->
@@ -58,7 +58,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">{{ config('app.name') }}</a>, Tous droits réservés.
+                    <p>&copy; <?php echo date("Y"); ?> ONONTIO. Tous droits réservés. Visitez notre site partenaire : <a href="https://arimaxe.com" target="_blank">arimaxe.com</a></p>
+                    
                 </div>
             </div>
         </div>

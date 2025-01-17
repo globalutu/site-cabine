@@ -59,6 +59,6 @@ class PageController extends Controller
         $teamMembers = Team::all(); // Récupération des membres de l'équipe
         $testimonials = Testimonial::all(); // Récupération des témoignages
 
-        return view('font-end.Contact', compact('Content', 'services', 'dossierCount', 'dossierWithDateCount', 'teamMembers', 'testimonials'));
+        return view('font-end.Contact', compact('Content', 'contact', 'services', 'dossierCount', 'dossierWithDateCount', 'teamMembers', 'testimonials'));
     }
 }

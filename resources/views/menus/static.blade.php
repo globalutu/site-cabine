@@ -4,46 +4,20 @@
 <div class="container-xxl py-5" id="Àpropos">
     <div class="container">
         <div class="row g-5">
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="img-border">
-                    <img class="img-fluid" src="img/5a0ae435-2d19-4b9a-b3e9-3759e1c43a37.jpg"
-                        alt="Cabinet ONONTIO Services Juridiques">
-                </div>
-            </div>
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="h-100">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">À Propos de Nous</h6>
-                    <h1 class="display-6 mb-4">Votre Partenaire Juridique de Confiance pour un Accompagnement Sur
-                        Mesure</h1>
-                    <p>Le cabinet <strong>ONONTIO</strong> est bien plus qu'un prestataire de services juridiques.
-                        Nous sommes un partenaire stratégique, dédié à accompagner nos clients dans leurs démarches
-                        juridiques, quels que soient leurs défis ou leurs objectifs. Notre approche repose sur
-                        l’écoute, la transparence, et l’excellence, avec pour mission de défendre vos intérêts et de
-                        sécuriser vos projets.</p>
-                    <p class="mb-4">Nous mettons à votre disposition une équipe hautement qualifiée et polyvalente,
-                        spécialisée dans des domaines variés tels que :</p>
+                    <h1 class="display-6 mb-4">Découvrez le cabinet <strong>ONONTIO</strong></h1>
+                    <p>Le cabinet <strong>ONONTIO</strong> se positionne comme un acteur clé dans le domaine des services juridiques, offrant un accompagnement stratégique à ses clients. Grâce à notre équipe experte et polyvalente, nous intervenons dans divers secteurs juridiques pour répondre efficacement à vos besoins.</p>
+                    <p class="mb-4">Nous vous proposons :</p>
                     <ul>
-                        <li><strong>Médiation et Résolution de Conflits :</strong> Évitez les longs procès et trouvez
-                            des solutions gagnant-gagnant.</li>
-                        <li><strong>Gestion des Litiges :</strong> Une prise en charge complète pour protéger vos
-                            droits.</li>
+                        <li><strong>Médiation et Résolution de Conflits :</strong> Trouvez des solutions amiables et évitez les litiges prolongés.</li>
+                        <li><strong>Gestion des Litiges :</strong> Protection complète de vos droits à chaque étape.</li>
                         <li><strong>Recouvrement de Créances :</strong> Nous vous aidons à récupérer vos fonds dans
                             les meilleurs délais.</li>
-                        <li><strong>Conseils Juridiques :</strong> Une expertise sur mesure pour sécuriser vos
-                            décisions.</li>
+                        <li><strong>Conseils Juridiques :</strong> Des recommandations personnalisées pour sécuriser vos décisions importantes.</li>
                     </ul>
-                    <p>Chez <strong>ONONTIO</strong>, nous croyons que chaque client est unique et mérite une solution
-                        personnalisée. Notre objectif est de vous offrir des résultats concrets, avec une approche
-                        proactive et efficace.</p>
-                    <div class="d-flex align-items-center mb-4 pb-2">
-                        <img class="flex-shrink-0 rounded-circle" src="img/team-1.jpg" alt="Omer Eddie Guendehou"
-                            style="width: 50px; height: 50px;">
-                        <div class="ps-4">
-                            <h6>Omer Eddie GUENDEHOU</h6>
-                            <small>Fondateur & Expert Juridique</small>
-                        </div>
-                    </div>
-                    <!-- Button with anchor link -->
+                    <p>Avec <strong>ONONTIO</strong>, bénéficiez d'un partenaire engagé pour sécuriser vos projets et défendre vos intérêts avec excellence et transparence.</p>
+                    
                     <a class="btn btn-primary rounded-pill py-3 px-5" href="#nos-services">Découvrir Nos Services</a>
                 </div>
             </div>
@@ -60,7 +34,8 @@
             <h1 class="display-6 mb-4">Des Solutions Juridiques Complètes et Personnalisées</h1>
         </div>
         <div class="row g-4">
-            @foreach ($services as $service)
+            @foreach ($services as $key => $service)
+                @if($key < 3)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="service-item d-block rounded text-center h-100 p-4" href="">
                         <img class="img-fluid rounded mb-4" src="{{ asset('storage/' . $service->image) }}"
@@ -68,7 +43,9 @@
                         <h4 class="mb-0">{{ $service->libelle }}</h4>
                     </a>
                 </div>
+                @endif
             @endforeach
+            <a href="{{ route('Services') }}"> <h6 class="bg-white text-center text-primary px-3">Voir plus</h6> </a>
         </div>
     </div>
 </div>
@@ -95,7 +72,7 @@
             <!-- Image -->
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="img-border">
-                    <img class="img-fluid" src="{{ $Content->image }}" alt="Services juridiques ONONTIO">
+                    <img class="img-fluid" src="{{ asset('storage/' . $Content->image) }}" alt="Services juridiques ONONTIO">
                 </div>
 
             </div>
@@ -209,7 +186,7 @@
     </div>
 </div>
 
-<div class="container-xxl py-5">
+<!--div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
             <h6 class="section-title bg-white text-center text-primary px-3">Notre Équipe</h6>
@@ -227,7 +204,7 @@
                                 <span>{{ $team->position }}</span>
                             </div>
                             <div class="team-social">
-                                <!-- Facebook -->
+                                
                                 @if ($team->facebook_url)
                                     <a class="btn btn-square btn-primary rounded-circle"
                                         href="{{ $team->facebook_url }}" target="_blank">
@@ -235,11 +212,10 @@
                                     </a>
                                 @else
                                     <a class="btn btn-square btn-secondary rounded-circle" href="#">
-                                        <i class="fab fa-facebook-f"></i> <!-- Icône par défaut -->
+                                        <i class="fab fa-facebook-f"></i>
                                     </a>
                                 @endif
 
-                                <!-- Twitter -->
                                 @if ($team->twitter_url)
                                     <a class="btn btn-square btn-primary rounded-circle"
                                         href="{{ $team->twitter_url }}" target="_blank">
@@ -247,11 +223,10 @@
                                     </a>
                                 @else
                                     <a class="btn btn-square btn-secondary rounded-circle" href="#">
-                                        <i class="fab fa-twitter"></i> <!-- Icône par défaut -->
+                                        <i class="fab fa-twitter"></i>
                                     </a>
                                 @endif
 
-                                <!-- LinkedIn -->
                                 @if ($team->linkedin_url)
                                     <a class="btn btn-square btn-primary rounded-circle"
                                         href="{{ $team->linkedin_url }}" target="_blank">
@@ -259,7 +234,7 @@
                                     </a>
                                 @else
                                     <a class="btn btn-square btn-secondary rounded-circle" href="#">
-                                        <i class="fab fa-linkedin-in"></i> <!-- Icône par défaut -->
+                                        <i class="fab fa-linkedin-in"></i> 
                                     </a>
                                 @endif
                             </div>
@@ -269,4 +244,4 @@
             @endforeach
         </div>
     </div>
-</div>
+</div-->

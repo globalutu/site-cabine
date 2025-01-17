@@ -69,6 +69,10 @@
             font-size: 1rem;
         }
 
+        p {
+            text-align: justify;
+        }
+
         textarea {
             resize: none;
         }
@@ -103,18 +107,6 @@
                         title="{{ old('email', $contact->email) }}" href="{{ old('email', $contact->email) }}"
                         style="transition: all 0.3s;">
                         <i class="far fa-envelope" style="font-size: 20px;"></i>
-                    </a>
-                    <a class="btn-square text-primary border-end rounded-circle p-2 m-1"
-                        href="{{ old('twitter_url', $contact->twitter_url) }}" style="transition: all 0.3s;">
-                        <i class="fab fa-twitter" style="font-size: 20px;"></i>
-                    </a>
-                    <a class="btn-square text-primary border-end rounded-circle p-2 m-1"
-                        href="{{ old('linkedin_url', $contact->linkedin_url) }}" style="transition: all 0.3s;">
-                        <i class="fab fa-linkedin-in" style="font-size: 20px;"></i>
-                    </a>
-                    <a class="btn-square text-primary pe-0 p-2 m-1" href="{{ old('email', $contact->email) }}"
-                        style="transition: all 0.3s;">
-                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
                     </a>
                 </div>
             </div>
